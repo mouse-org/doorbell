@@ -11,11 +11,12 @@
 
 int speakerPin = 5;
 int buttonPin = 12;
+int LED1 = 11;
+int LED2 = 10;
+int LED3 = 9;
 
 int buttonState = 0;
 
-
-//
 // notes in the melody - these numbers actually control the pitches.
 // if you are interested in making music with this circuit, check out:
 // http://arduino.cc/en/Tutorial/Tone or go to
@@ -30,6 +31,9 @@ void setup() {
   //declaring pins as inputs and outputs
   pinMode(speakerPin, OUTPUT); //speaker attached to pin 5
   pinMode(buttonPin, INPUT);  //button attached to pin 12
+  pinMode(LED1, OUTPUT);
+  pinMode(LED2, OUTPUT);
+  pinMode(LED3, OUTPUT);
 }
 
 void loop() {  
@@ -38,7 +42,36 @@ void loop() {
  
   //if the button IS pressed
   if(buttonState == HIGH){  // HIGH = pressed
-	playMelody();
+  playMelody();
+        digitalWrite(LED1, HIGH);
+        delay(200);
+        digitalWrite(LED1, LOW);
+        digitalWrite(LED2, HIGH);
+        delay(200);
+        digitalWrite(LED2, LOW);
+        digitalWrite(LED3, HIGH);
+        delay(200);
+        digitalWrite(LED3, LOW);
+        digitalWrite(LED1, HIGH);
+        delay(200);
+        digitalWrite(LED1, LOW);
+        digitalWrite(LED2, HIGH);
+        delay(200);
+        digitalWrite(LED2, LOW);
+        digitalWrite(LED3, HIGH);
+        delay(200);
+        digitalWrite(LED3, LOW);
+        digitalWrite(LED1, HIGH);
+        delay(200);
+        digitalWrite(LED1, LOW);
+        digitalWrite(LED2, HIGH);
+        delay(200);
+        digitalWrite(LED2, LOW);
+        digitalWrite(LED3, HIGH);
+        delay(200);
+        digitalWrite(LED3, LOW);
+        
+
   }
  
   //if the button IS NOT pressed
@@ -53,13 +86,13 @@ void playMelody(){
   // iterate over the notes of the melody:
   for (int thisNote = 0; thisNote < 15; thisNote++) {
 
-	// to calculate the note duration, take one second
-	// divided by the note type.
-	//e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
-	int noteDuration = 1000/noteDurations[thisNote];
-	tone(speakerPin, melody[thisNote],noteDuration);
+  // to calculate the note duration, take one second
+  // divided by the note type.
+  //e.g. quarter note = 1000 / 4, eighth note = 1000/8, etc.
+  int noteDuration = 1000/noteDurations[thisNote];
+  tone(speakerPin, melody[thisNote],noteDuration);
 
-	// Space between each note
-	delay(150);
+  // Space between each note
+  delay(150);
   }
 }
