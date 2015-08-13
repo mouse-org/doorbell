@@ -43,6 +43,8 @@ void loop() {
   //if the button IS pressed
   if(buttonState == HIGH){  // HIGH = pressed
   playMelody();
+
+  // Blink each of 3 LEDs 3 times.
         digitalWrite(LED1, HIGH);
         delay(200);
         digitalWrite(LED1, LOW);
